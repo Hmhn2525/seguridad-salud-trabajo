@@ -1,0 +1,9 @@
+{
+  "synthetic": true,
+  "record": "DEMO-SST-001",
+  "catalog_reference": "DEMO-CAT-001",
+  "calendar_date": "2026-01-05",
+  "expected_iso_week": 2,
+  "record_type": "Ejemplo administrativo sin información clínica",
+  "illustrative_only": true
+}
