@@ -21,3 +21,9 @@ Las fuentes privadas se conservaron. Las ubicaciones y huellas revisadas se regi
 - Acreditar responsabilidades históricas y decidir licencia.
 
 Un repositorio publicado y un ejemplo correcto no certifican operación productiva ni aceptación de usuarios.
+
+## Enlaces facilitados posteriormente
+
+La hoja SST y el informe Looker Studio facilitados por el solicitante abrieron el 5 de octubre de 2026. El endpoint GAS devolvió `Script function not found: doGet`. Este resultado afecta su acceso HTTP; no demuestra fallo de todos los activadores de Sheets. No se inspeccionaron registros personales ni consultas SQL del informe.
+
+El solicitante reporta una conexión BigQuery para las consultas de Looker Studio. Su configuración, permisos y SQL permanecen pendientes de verificación. Los enlaces e identificadores operativos se conservan exclusivamente en gestión privada.

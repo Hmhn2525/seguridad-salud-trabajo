@@ -22,6 +22,8 @@ El proyecto GAS revisado recibe respuestas de formularios, busca referencias de 
 
 Google Apps Script, Google Sheets, Google Forms. Consulte la [arquitectura](docs/architecture.md) para su función.
 
+El informe Looker Studio facilitado abre. Su conexión BigQuery fue reportada por el solicitante; no se inspeccionó el SQL. El endpoint HTTP GAS devuelve `Script function not found: doGet`. La [verificación](docs/verification.md) registra estos límites sin publicar enlaces operativos.
+
 ## Evidencia y resultados
 
 El 5 de octubre de 2026 se consultó en lectura el código del proyecto GAS SST: 27 funciones identificadas. Se comprobaron cuatro casos de utilidades en un entorno local sin servicios Google. No se ejecutaron formularios, activadores ni escrituras remotas.
