@@ -1,59 +1,69 @@
 # Digitalización, Gobernanza y Analítica de Seguridad y Salud en el Trabajo
 
-Automatización de formularios, catálogos y registros en Google Sheets.
+Automatización de flujos de registro, gobernanza de catálogos y analítica de SST con Google Apps Script y Google Sheets.
 
-**Estado:** caso de estudio documental de un proyecto Google Apps Script consultado en lectura. El código operativo y sus datos no se distribuyen en este repositorio. Se publican documentación nueva y un recorrido ilustrativo con datos ficticios.
+> [!NOTE]
+> **Repositorio documental.** El código operativo permanece privado debido a la confidencialidad de la información operativa. Aquí se publican documentación de arquitectura, evidencia técnica, captura ilustrativa y un ejemplo sintético reproducible sin datos clínicos reales.
 
-## Problema y solución
+[Probar el ejemplo](#probar-el-ejemplo) · [Caso de estudio](docs/case-study.md) · [Arquitectura](docs/architecture.md) · [Verificación y límites](docs/verification.md)
 
-Organizar la captura y actualización de registros de SST relacionados con catálogos, fechas e inventario, conservando la privacidad de la información.
+## Problema
 
-El proyecto GAS revisado recibe respuestas de formularios, busca referencias de catálogo y actualiza hojas. Incluye un enrutador de edición con bloqueo y utilidades de fechas.
+La gestión de incidentes y registros de Seguridad y Salud en el Trabajo (SST) genera un flujo continuo de formularios que deben clasificarse, validarse contra catálogos vigentes y registrarse con estricta confidencialidad. Los procesos manuales provocan desajustes en fechas y semanas epidemiológicas/operativas, inconsistencias en catálogos y riesgo de divulgación no autorizada de datos personales.
 
-## Funciones observadas en la fuente
+## Solución
 
-- Procesador de formulario que organiza entradas según su tipo.
-- Búsqueda de referencias en catálogos y actualización de columnas por lotes.
-- Enrutador de eventos de edición con DocumentLock y liberación en finally.
-- Actualizaciones separadas de registros e inventario.
-- Funciones de normalización de fecha, semana ISO y nombre del mes.
+Un flujo automatizado en Google Apps Script que procesa formularios y resguarda la gobernanza del dato:
+- **Procesamiento estructurado de respuestas:** enrutamiento automático según el tipo de registro o incidente.
+- **Validación contra catálogos:** cruce automático de referencias y actualización en Google Sheets mediante escrituras por lotes.
+- **Control de concurrencia:** uso de `DocumentLock` con liberación obligatoria en bloques `finally` para evitar colisiones entre registros.
+- **Normalización temporal:** cálculo automatizado de fechas, semanas ISO y periodos para análisis en tableros sin manipular registros manualmente.
 
-## Tecnologías verificadas
+![Recorrido documental con datos ficticios: automatización y gobernanza SST](docs/images/recorrido-demo.png)
 
-Google Apps Script, Google Sheets, Google Forms. Consulte la [arquitectura](docs/architecture.md) para su función.
+*Recorrido explicativo con datos sintéticos. Ilustración independiente; no ejecuta la aplicación operativa.*
 
-El informe Looker Studio facilitado abre. Su conexión BigQuery fue reportada por el solicitante; no se inspeccionó el SQL. El endpoint HTTP GAS devuelve `Script function not found: doGet`. La [verificación](docs/verification.md) registra estos límites sin publicar enlaces operativos.
+## Aportación personal
 
-## Evidencia y resultados
+<!-- APORTACION-PERSONAL: sustituir tras la confirmación agrupada de responsabilidades. -->
+Las responsabilidades personales específicas se detallarán tras la confirmación agrupada. Este repositorio documenta el caso, la arquitectura observada y las pruebas sintéticas sin atribuir autoría exclusiva de los sistemas operativos.
 
-El 5 de octubre de 2026 se consultó en lectura el código del proyecto GAS SST: 27 funciones identificadas. Se comprobaron cuatro casos de utilidades en un entorno local sin servicios Google. No se ejecutaron formularios, activadores ni escrituras remotas.
+## Probar el ejemplo
 
-No se publican métricas de ahorro, adopción o productividad. La [verificación](docs/verification.md) explica su alcance. La aportación personal detallada y la autoría integral del código operativo no están acreditadas públicamente; este caso presenta la revisión técnica y la documentación del proyecto asociado al portafolio.
+Requiere Python 3 y biblioteca estándar. Desde la raíz del repositorio:
 
-## Demostración y capturas
+```text
+python examples/verify.py
+```
 
-Abra [demo/index.html](demo/index.html) localmente. El recorrido funciona sin servidor, instalación ni conexión a servicios. Su tabla representa [datos sintéticos](examples/scenario.json), no una captura de la aplicación original. El botón recorre textos ilustrativos; no ejecuta operaciones de negocio.
+Comprueba el cálculo de la semana ISO y la normalización de fechas con un registro sintético, sin dependencias externas.
 
-![Recorrido documental con datos ficticios](docs/images/recorrido-demo.png)
+Para explorar el flujo en el navegador, abra [demo/index.html](demo/index.html) de forma local.
 
-Puede verificar los datos usando Python 3: `python examples/verify.py`.
+## Resultados comprobados
 
-## Caso de estudio
+- **Automatización y gobernanza:** 27 funciones identificadas e inspeccionadas en el proyecto GAS (5 de octubre de 2026), cubriendo enrutamiento, validación y utilidades.
+- **Normalización de fechas:** 4 casos de pruebas de utilidades puras verificados localmente sin servicios Google, comprobando cálculo de semana ISO y formato estándar.
+- **Privacidad estricta:** el ejemplo didáctico y la documentación omiten cualquier referencia clínica o dato personal sensible.
 
-Consulte [problema, decisiones y aprendizajes](docs/case-study.md).
+No se publican métricas no medidas de reducción de tiempos o accidentabilidad.
 
-## Seguridad y limitaciones
+## Tecnologías
 
-Publicación independiente sin historial operativo. No incluye credenciales, identificadores de servicios, catálogos empresariales, datos personales, archivos de respaldo ni configuración productiva. Las pruebas de la fuente se ejecutaron con simulación o temporales aislados; el recorrido público es una explicación independiente.
+| Alcance | Tecnologías |
+|---|---|
+| Observadas en la fuente | Google Apps Script, Google Sheets, Google Forms, Looker Studio |
+| Ejemplo público | Python 3 (biblioteca estándar), HTML/CSS estático |
+| Reportada, pendiente de inspección | BigQuery y consultas SQL reportadas por el solicitante |
 
-## Pendientes
+## Límites
 
-- Verificar formularios y activadores en una copia aislada con registros ficticios.
-- Revisar acceso, retención y distribución por la sensibilidad de los registros.
-- Corregir o validar fechas imposibles: la normalización simple puede desplazar días a otro mes.
-- Evaluar eventos omitidos cuando el bloqueo está ocupado; reporting y aceptación humana pendientes.
-- Acreditar responsabilidades históricas y decidir licencia.
+- El endpoint HTTP GAS analizado devolvió `Script function not found: doGet` al consultarlo vía web; esto afecta la consulta web directa, aunque no invalida los activadores vinculados a formularios y hojas.
+- La normalización simple de fechas puede desplazar días en fechas imposibles (ej. 31 de febrero); se identificó como caso de borde a corregir.
+- El código operativo permanece privado por normativas de privacidad y seguridad del dato.
+
+Detalle técnico y condiciones pendientes: [verificación y límites](docs/verification.md).
 
 ## Licencia
 
-Pendiente de decisión expresa. No se asigna una licencia de software ni se atribuyen derechos sobre el código operativo.
+Pendiente de decisión expresa. No se asigna licencia ni derechos sobre el código privado.

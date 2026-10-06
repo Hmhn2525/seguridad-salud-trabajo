@@ -9,3 +9,4 @@ assert date.fromisoformat(data['calendar_date']).isocalendar().week == data['exp
 assert data['illustrative_only'] is True
 assert data['record'].startswith('DEMO-')
 print('Ejemplo sintético coherente; no ejecuta ni valida el sistema operativo.')
+print(f"Registro: {data['record']} | Fecha: {data['calendar_date']} | Semana ISO verificada: {data['expected_iso_week']}")
