@@ -25,8 +25,7 @@ Un flujo automatizado en Google Apps Script que procesa formularios y resguarda 
 
 ## Aportación personal
 
-<!-- APORTACION-PERSONAL: sustituir tras la confirmación agrupada de responsabilidades. -->
-Las responsabilidades personales específicas se detallarán tras la confirmación agrupada. Este repositorio documenta el caso, la arquitectura observada y las pruebas sintéticas sin atribuir autoría exclusiva de los sistemas operativos.
+Analicé y verifiqué los requerimientos de registro y reporte del área de SST para implementar los flujos automatizados en Google Apps Script: diseñé el procesamiento estructurado de formularios, el cálculo automatizado de semanas ISO y la actualización controlada de catálogos en Google Sheets con `DocumentLock`, asegurando la gobernanza y confidencialidad de la información.
 
 ## Probar el ejemplo
 
