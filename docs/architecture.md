@@ -29,4 +29,4 @@ Este repositorio contiene Markdown, un JSON sintético, un verificador Python de
 - Revisar acceso, retención y distribución por la sensibilidad de los registros.
 - Corregir o validar fechas imposibles: la normalización simple puede desplazar días a otro mes.
 - Evaluar eventos omitidos cuando el bloqueo está ocupado; reporting y aceptación humana pendientes.
-- Acreditar responsabilidades históricas y decidir licencia.
+- Definición de licencia en su fase técnica propia.

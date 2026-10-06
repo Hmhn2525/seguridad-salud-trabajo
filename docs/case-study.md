@@ -6,7 +6,7 @@ Organizar la captura y actualización de registros de SST relacionados con catá
 
 ## Aportación documentada
 
-Este caso organiza la revisión de fuentes, pruebas sintéticas, arquitectura y límites de una solución asociada al portafolio. La revisión no acredita autoría exclusiva de todos sus componentes. Los detalles de responsabilidades históricas requieren evidencia adicional antes de ampliarlos.
+Este caso organiza la revisión de fuentes, pruebas sintéticas, arquitectura y límites de una solución asociada al portafolio. Se preservan las reservas sobre autoría exclusiva de todos sus componentes y componentes de terceros. Las responsabilidades personales en análisis de requerimientos, flujos GAS, formularios estructurados, cálculo de semanas ISO y catálogos controlados con `DocumentLock` han sido confirmadas en el README.
 
 ## Decisiones observadas
 
@@ -28,4 +28,4 @@ La normalización de fechas no equivale a validación estricta del calendario. L
 - Revisar acceso, retención y distribución por la sensibilidad de los registros.
 - Corregir o validar fechas imposibles: la normalización simple puede desplazar días a otro mes.
 - Evaluar eventos omitidos cuando el bloqueo está ocupado; reporting y aceptación humana pendientes.
-- Acreditar responsabilidades históricas y decidir licencia.
+- Definición de licencia en su fase técnica propia.
